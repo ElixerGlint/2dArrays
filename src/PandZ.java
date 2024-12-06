@@ -17,13 +17,26 @@ public class PandZ {
         }
     }
 
-    public boolean marchzombies(int row) {
+
+    public boolean marchzombies() {
+        for(int i = 0; i < board.length; i++) { //all the rows
+            if(!marchzombie(i)) {
+                return false;
+            }
+
+        }
+        return true;
+    }
+
+
+    public boolean marchzombie(int row) {
         for (int col = board[row].length - 1; col > -1; col--) {
             if (board[row][col] == 'Z') {
                 if (Math.random() < 0.5) {// 50, 50 chance to move
                     if(col-1>= 0) {
                         board[row][col-1] = 'Z';
                         board[row][col] = ' ';
+                        return true;
                     }
                     else{
                         return false;

@@ -17,8 +17,14 @@ public class App {
 
 
         PandZ abc = new PandZ();
-        System.out.println(abc);
 
+        while(abc.marchzombies()) {
+            System.out.println(abc);
+            Thread.sleep(500);
+        }
+        System.out.println("You Lose!");
+
+        
 
 
     }
