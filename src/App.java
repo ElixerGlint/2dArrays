@@ -22,6 +22,7 @@ public class App {
             abc.startshoot();
             System.out.println(abc);
             Thread.sleep(500);
+            
         }
         System.out.println("You Lose!");
 

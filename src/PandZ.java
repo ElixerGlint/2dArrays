@@ -28,6 +28,11 @@ public class PandZ {
         int i = 0;
         while(starcol+i<board[0].length) { //right bullet
             if(board[starrow][starcol+i] == 'Z') {
+                board[starrow][starcol + i] = 'N';
+                zombiehit = true;
+                break;
+            }
+            if(board[starrow][starcol+i] == 'N') {
                 board[starrow][starcol + i] = 'X';
                 zombiehit = true;
                 break;
@@ -37,6 +42,11 @@ public class PandZ {
         i = 0;
         while(starcol+i<board[0].length && starrow+i<board.length) { //bottomright bullet
             if(board[starrow+i][starcol+i] == 'Z') {
+                board[starrow+i][starcol + i] = 'N';
+                zombiehit = true;
+                break;
+            }
+            if(board[starrow+i][starcol+i] == 'N') {
                 board[starrow+i][starcol + i] = 'X';
                 zombiehit = true;
                 break;
@@ -46,6 +56,11 @@ public class PandZ {
         i = 0;
         while(starcol+i<board[0].length && starrow-i>0) { //topright bullet
             if(board[starrow-i][starcol+i] == 'Z') {
+                board[starrow-i][starcol +i] = 'N';
+                zombiehit = true;
+                break;
+            }
+            if(board[starrow-i][starcol+i] == 'N') {
                 board[starrow-i][starcol +i] = 'X';
                 zombiehit = true;
                 break;
@@ -70,10 +85,10 @@ public class PandZ {
 
     public boolean marchzombie(int row) {
         for (int col = board[row].length - 1; col > -1; col--) {
-            if (board[row][col] == 'Z') {
+            if (board[row][col] == 'Z' || board[row][col] == 'N' ) {
                 if (Math.random() < 0.5) {// 50, 50 chance to move
                     if(col-1>= 0) {
-                        board[row][col-1] = 'Z';
+                        board[row][col-1] = board[row][col];
                         board[row][col] = ' ';
                         return true;
                     }
