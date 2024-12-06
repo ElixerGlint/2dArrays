@@ -21,7 +21,7 @@ public class App {
         while(abc.marchzombies()) {
             abc.startshoot();
             System.out.println(abc);
-            Thread.sleep(500);
+            Thread.sleep(2000);
             
         }
         System.out.println("You Lose!");
