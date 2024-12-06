@@ -18,7 +18,8 @@ public class PandZ {
             }
         }
         starrow = (int)(Math.random()*board.length);
-        starrow = 1;
+        starcol = (int)(Math.random()*3) + 1;
+        board[starrow][starcol] = 'S';
     }
 
 
