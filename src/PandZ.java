@@ -8,45 +8,50 @@ public class PandZ {
         for (int row = 0; row < board.length; row++) {
             board[row][0] = 'P';
             board[row][board[row].length - 1] = 'Z';
+
         }
+        for (int row = 0; row < board.length; row++) {
+            for (int col = 1; col < board[row].length - 1; col++) {
+                board[row][col] = ' ';
+            }
+        }
+    }
+
+    public boolean marchzombies(int row) {
+        for (int col = board[row].length - 1; col > -1; col--) {
+            if (board[row][col] == 'Z') {
+                if (Math.random() < 0.5) {// 50, 50 chance to move
+                    if(col-1>= 0) {
+                        board[row][col-1] = 'Z';
+                        board[row][col] = ' ';
+                    }
+                    else{
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
     }
 
     @Override
     public String toString() {
         String output = "";
-        
-        for(char[]row:board) {
-            for(char square: row) {
-                output+= square + "|";
+
+        for (char[] row : board) {
+            for (char square : row) {
+                output += square + "|";
             }
             output += "\n";
-            for(int i = 0; i < row.length*2; i++) {
-                output+="-";
+            for (int i = 0; i < row.length * 2; i++) {
+                output += "-";
             }
             output += "\n";
         }
-
-
-
-
         return output;
     }
 
+    // int count
+    // int[] abc = new int [3
 
-
-    public static int[] addup(int[][] data) {
-        int[] output = new int[data.length];
-        for(int i = 0; i < data.length; i++) {
-            for(int j = 0; j < data[i].length; j++) {
-                output[i] += data[i][j];
-            }
-        }
-        return output;
-    }
-    
-    //int count
-    //int[] abc = new int [3
-    
-    
-    
 }
