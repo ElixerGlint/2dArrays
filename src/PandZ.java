@@ -23,7 +23,7 @@ public class PandZ {
     }
 
 
-    public boolean startshoot(){
+    public boolean startshoot(){ //break stops multiple projectiles from hitting at once
         boolean zombiehit = false;
         int i = 0;
         while(starcol+i<board[0].length) { //right bullet
@@ -86,7 +86,7 @@ public class PandZ {
     public boolean marchzombie(int row) {
         for (int col = board[row].length - 1; col > -1; col--) {
             if (board[row][col] == 'Z' || board[row][col] == 'N' ) {
-                if (Math.random() < 0.5) {// 50, 50 chance to move
+                if (Math.random() < 0.3) {// 50, 50 chance to move
                     if(col-1>= 0) {
                         board[row][col-1] = board[row][col];
                         board[row][col] = ' ';
