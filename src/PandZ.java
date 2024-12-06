@@ -36,7 +36,6 @@ public class PandZ {
 
     public static int[] addup(int[][] data) {
         int[] output = new int[data.length];
-
         for(int i = 0; i < data.length; i++) {
             for(int j = 0; j < data[i].length; j++) {
                 output[i] += data[i][j];
