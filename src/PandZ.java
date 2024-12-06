@@ -2,6 +2,8 @@ import java.util.Arrays;
 
 public class PandZ {
     private char[][] board;
+    private int starrow;
+    private int starcol;
 
     public PandZ() {
         board = new char[5][8];
@@ -15,6 +17,8 @@ public class PandZ {
                 board[row][col] = ' ';
             }
         }
+        starrow = (int)(Math.random()*board.length);
+        starrow = 1;
     }
 
 
