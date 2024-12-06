@@ -19,6 +19,7 @@ public class App {
         PandZ abc = new PandZ();
 
         while(abc.marchzombies()) {
+            abc.startshoot();
             System.out.println(abc);
             Thread.sleep(500);
         }

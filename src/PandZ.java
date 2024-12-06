@@ -23,6 +23,40 @@ public class PandZ {
     }
 
 
+    public boolean startshoot(){
+        boolean zombiehit = false;
+        int i = 0;
+        while(starcol+i<board[0].length) { //right bullet
+            if(board[starrow][starcol+i] == 'Z') {
+                board[starrow][starcol + i] = 'X';
+                zombiehit = true;
+                break;
+            }
+            i++;
+        }
+        i = 0;
+        while(starcol+i<board[0].length && starrow+i<board.length) { //bottomright bullet
+            if(board[starrow+i][starcol+i] == 'Z') {
+                board[starrow+i][starcol + i] = 'X';
+                zombiehit = true;
+                break;
+            }
+            i++;
+        }
+        i = 0;
+        while(starcol+i<board[0].length && starrow-i>0) { //topright bullet
+            if(board[starrow-i][starcol+i] == 'Z') {
+                board[starrow-i][starcol +i] = 'X';
+                zombiehit = true;
+                break;
+            }
+            i++;
+        }
+
+        return zombiehit;
+    }
+
+
     public boolean marchzombies() {
         for(int i = 0; i < board.length; i++) { //all the rows
             if(!marchzombie(i)) {
